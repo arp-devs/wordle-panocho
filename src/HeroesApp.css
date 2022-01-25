@@ -5,3 +5,30 @@
 body {
   padding: 60px;
 }
+
+.celda {
+  border: 2px solid #CCC;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 25pt;
+  height: 60px;
+  padding-top: 5px;
+  text-align: center;
+  width: 60px;
+}
+
+.celda-incorrecta {
+  background-color: #555;
+  color: white;
+  border: 0;
+}
+
+.celda-correcta {
+  background-color: rgb(77, 161, 77);
+  color: white;
+  border: 0;
+}
+
+.linea {
+  display: flex;
+}
