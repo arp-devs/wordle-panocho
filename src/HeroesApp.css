@@ -6,7 +6,18 @@ body {
   padding: 60px;
 }
 
-.celda {
+.title {
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 25pt;
+  /* display:flex;
+  justify-content: space-between; */
+  /* text-align: center; */
+  letter-spacing: 0.2rem;
+  flex: 1.5;
+}
+
+.cell {
   border: 2px solid #CCC;
   font-family: Helvetica, Arial, sans-serif;
   font-weight: bold;
@@ -17,18 +28,50 @@ body {
   width: 50px;
 }
 
-.celda-incorrecta {
+.incorrect-cell {
   background-color: #555;
   color: white;
   border: 0;
 }
 
-.celda-correcta {
+.correct-cell {
   background-color: rgb(77, 161, 77);
   color: white;
   border: 0;
 }
 
-.linea {
+.misplaced-cell {
+  background-color: rgb(185, 175, 77);
+  color: white;
+  border: 0;
+}
+
+.keyboard {
+  display:flex;
+}
+
+.key {
+  background-color: #DDD;
+  border-radius: 5px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  height: 60px;
+  margin: 2.5px;
+  /* padding: 15px; */
+  padding: 15px 0px 0px 0px;
+  text-align: center;
+  width: 30px;
+  /* vertical-align: middle; */
+  /* flex: 1;
+  display: flex; */
+}
+
+.one-and-a-half {
+  /* flex: 1.5; */
+  font-size: 12px;
+  width: 50px;
+}
+
+.line {
   display: flex;
 }
