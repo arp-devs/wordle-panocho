@@ -6,16 +6,6 @@ body {
   padding: 60px;
 }
 
-.title {
-  font-family: Helvetica, Arial, sans-serif;
-  font-weight: bold;
-  font-size: 25pt;
-  /* display:flex;
-  justify-content: space-between; */
-  /* text-align: center; */
-  letter-spacing: 0.2rem;
-  flex: 1.5;
-}
 
 .cell {
   border: 2px solid #CCC;
@@ -46,10 +36,43 @@ body {
   border: 0;
 }
 
-.keyboard {
-  display:flex;
+.title {
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 25pt;
+  /* display:flex; */
+  /* justify-content: space-between;  */
+  /* text-align: center; */
+  letter-spacing: 0.2rem;
+  /* flex: 1.5; */
+  /* flex-grow: 1; */
+  /* align-self: center; */
 }
 
+.grid-panel {
+  /* flex-shrink: 15; */
+  flex-grow: 17;
+  /* align-self: center; */
+  overflow: hidden;
+  display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    /* flex-grow: 1; */
+}
+
+.keyboard {
+  /* display:flex; */
+  /* flex-shrink: 2; */
+  flex-grow: 1;
+  /* align-self: flex-end; */
+}
+.container-general {
+  display: flex;
+  flex-direction: column;
+  /* flex-wrap: nowrap; */
+  justify-content: space-between;
+  /* align-items: stretch; */
+}
 .key {
   background-color: #DDD;
   border-radius: 5px;

@@ -41,7 +41,7 @@ export const GridPanel = () => {
   }, []);
 
   return (
-    <div className='w-100 position-absolute top-50 start-50 translate-middle'>
+    <div className='w-100 grid-panel'>
      <div className="container text-center "> 
         <Row word={grid[0]} rowIndex={0}/>        
         <Row word={grid[1]} rowIndex={1}/>        

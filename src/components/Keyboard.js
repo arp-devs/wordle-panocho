@@ -8,47 +8,45 @@ export const Keyboard = () => {
     const keyboardRow3 = ["ENTER", "Z", "X", "C", "V", "B", "N", "M", "DELETE"]
     return (
 
-        <div className='w-100 position-absolute start-0 bottom-0 '>
-            <div className=" container "> 
-                <div className=" row justify-content-center"> 
+        <div className='keyboard'>
+            <div className=" row justify-content-center"> 
 
-                    {
-                        keyboardRow1.map((letter, index) => (
+                {
+                    keyboardRow1.map((letter, index) => (
 
-                            <Key 
-                                key={index}
-                                state="" 
-                                letter={letter}
-                            />
-                        )) 
-                    }
-                </div>
-                <div className=" row justify-content-center"> 
+                        <Key 
+                            key={index}
+                            state="" 
+                            letter={letter}
+                        />
+                    )) 
+                }
+            </div>
+            <div className=" row justify-content-center"> 
 
-                    {
-                        keyboardRow2.map((letter, index) => (
+                {
+                    keyboardRow2.map((letter, index) => (
 
-                            <Key 
-                                key={index}
-                                state="" 
-                                letter={letter}
-                            />
-                        )) 
-                    }
-                </div>
-                <div className=" row justify-content-center"> 
+                        <Key 
+                            key={index}
+                            state="" 
+                            letter={letter}
+                        />
+                    )) 
+                }
+            </div>
+            <div className=" row justify-content-center"> 
 
-                    {
-                        keyboardRow3.map((letter, index) => (
+                {
+                    keyboardRow3.map((letter, index) => (
 
-                            <Key 
-                                key={index}
-                                state="" 
-                                letter={letter}
-                            />
-                        )) 
-                    }
-                </div>
+                        <Key 
+                            key={index}
+                            state="" 
+                            letter={letter}
+                        />
+                    )) 
+                }
             </div>
         </div>
 
