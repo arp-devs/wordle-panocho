@@ -12,10 +12,10 @@ body {
   font-family: Helvetica, Arial, sans-serif;
   font-weight: bold;
   font-size: 25pt;
-  height: 50px;
+  height: 42px;
   margin: 2.5px;
   text-align: center;
-  width: 50px;
+  width: 42px;
 }
 
 .incorrect-cell {
