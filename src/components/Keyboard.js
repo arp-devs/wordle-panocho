@@ -9,7 +9,7 @@ export const Keyboard = () => {
     return (
 
         <div className='keyboard'>
-            <div className=" row justify-content-center"> 
+            <div className="keyboard-row row justify-content-center"> 
 
                 {
                     keyboardRow1.map((letter, index) => (
@@ -22,7 +22,7 @@ export const Keyboard = () => {
                     )) 
                 }
             </div>
-            <div className=" row justify-content-center"> 
+            <div className="keyboard-row row justify-content-center"> 
 
                 {
                     keyboardRow2.map((letter, index) => (
@@ -35,7 +35,7 @@ export const Keyboard = () => {
                     )) 
                 }
             </div>
-            <div className=" row justify-content-center"> 
+            <div className="keyboard-row row justify-content-center"> 
 
                 {
                     keyboardRow3.map((letter, index) => (

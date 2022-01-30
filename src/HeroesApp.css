@@ -59,10 +59,13 @@ body {
     /* flex-grow: 1; */
 }
 
+.keyboard-row {
+  margin: 0px !important;
+}
 .keyboard {
   /* display:flex; */
   /* flex-shrink: 2; */
-  flex-grow: 1;
+  /* flex-grow: 1; */
   /* align-self: flex-end; */
 }
 .container-general {
