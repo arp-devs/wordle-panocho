@@ -49,19 +49,21 @@ export const GridPanel = () => {
     var increaseActiveRow = 0;
     // console.log("currentGrid:");
     // console.log(currentGrid);
-    setRow(grid[activeRow]);
+    // setRow(grid[activeRow]);
     console.log(row);
+    // currentRow = grid[activeRow];
+    setRow(grid[activeRow]);
     
     for (var i=0; i < row.length; i++) {
       if (Object.keys(row[i]).length == 0) {
         row[i] = letter;
-        grid[activeRow] = row;
-        // console.log("grid");
-        // console.log(grid[activeRow]);
-        // console.log("row");
-        // console.log(row);
-        setGrid(grid);
-        setRow(row);
+        // grid[activeRow] = row;
+        // // console.log("grid");
+        // // console.log(grid[activeRow]);
+        // // console.log("row");
+        // // console.log(row);
+        // setGrid(grid);
+        // setRow(row);
         break;
       } else {
         // console.log("i: " + i);
@@ -74,7 +76,14 @@ export const GridPanel = () => {
       // this.setState();
     }
   
+    setRow(row);
     
+    for (var i=activeRow; i < currentGrid.length; i++) {
+      if (Object.keys(currentGrid[i][0]).length == 0) {
+        currentGrid[i] = row;
+        break;
+      }
+    }
     // // console.log("activeRow: " + activeRow);
     // for (var i=activeRow; i < grid.length; i++) {
     //   if (Object.keys(grid[i][0]).length == 0) {
@@ -86,6 +95,8 @@ export const GridPanel = () => {
     // grid[activeRow] = currentRow;
     // setGrid(grid);
     
+    setGrid(currentGrid);
+
     if (increaseActiveRow === 1) {
       setActiveRow(activeRow + 1) ;
     }
