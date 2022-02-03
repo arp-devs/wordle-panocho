@@ -46,63 +46,30 @@ export const GridPanel = () => {
   ]
   
   const handleFillLetter = (letter) => {
-    var increaseActiveRow = 0;
-    // console.log("currentGrid:");
-    // console.log(currentGrid);
     // setRow(grid[activeRow]);
-    console.log(row);
-    // currentRow = grid[activeRow];
-    setRow(grid[activeRow]);
     
     for (var i=0; i < row.length; i++) {
+      console.log("i: " + i + " < " + row.length);
       if (Object.keys(row[i]).length == 0) {
         row[i] = letter;
-        // grid[activeRow] = row;
-        // // console.log("grid");
-        // // console.log(grid[activeRow]);
-        // // console.log("row");
-        // // console.log(row);
-        // setGrid(grid);
         // setRow(row);
         break;
       } else {
-        // console.log("i: " + i);
-        // console.log("length: " + (currentRow.length - 1));
-        // console.log("activeRow: " + activeRow);
-        if (i === (row.length - 1)) {
-          increaseActiveRow = 1
+        if (i === (row.length - 1)) { 
+          setActiveRow(activeRow + 1) ;
+          // setRow(grid[activeRow + 1]);
         }
       }
-      // this.setState();
     }
-  
-    setRow(row);
-    
-    for (var i=activeRow; i < currentGrid.length; i++) {
-      if (Object.keys(currentGrid[i][0]).length == 0) {
-        currentGrid[i] = row;
-        break;
-      }
-    }
-    // // console.log("activeRow: " + activeRow);
-    // for (var i=activeRow; i < grid.length; i++) {
-    //   if (Object.keys(grid[i][0]).length == 0) {
-    //     // console.log(currentRow);
-    //     //currentGrid[i] = currentRow;
-    //     break;
-    //   }
-    // }
-    // grid[activeRow] = currentRow;
-    // setGrid(grid);
-    
-    setGrid(currentGrid);
 
-    if (increaseActiveRow === 1) {
-      setActiveRow(activeRow + 1) ;
-    }
-    // console.log(grid);
-    
+    grid[activeRow] = row;
+    setGrid(grid => [...grid, row]);
+
   } 
+
+  useEffect(() => {
+      setRow(grid[activeRow])
+  }, [activeRow])
 
   // useEffect(() => {
   //   // handleFillWord(firstWord);
@@ -126,10 +93,11 @@ export const GridPanel = () => {
         <Row word={grid[4]} rowIndex={4}/>        
         <Row word={grid[5]} rowIndex={5}/>            
       </div>
+      {/* {activeRow}
       <button onClick={() => handleFillLetter({
        letter:"F",
        state:""
-     })}>Añadir</button>
+     })}>Añadir</button> */}
     </div>
 
     
