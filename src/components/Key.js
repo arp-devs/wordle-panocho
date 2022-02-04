@@ -1,7 +1,7 @@
 import React from 'react';
 import { cellStateReducer } from '../cellStateReducer';
 
-export const Key = ({state="", letter="", key}) => {
+export const Key = ({state="", letter="", key, handleKeyInput}) => {
 
     const classNameCell = cellStateReducer(state);
 
@@ -13,7 +13,7 @@ export const Key = ({state="", letter="", key}) => {
     }
 
     return ( 
-        <div className={"key " + classNameCell + classNameBigger(letter) } key={key}>
+        <div className={"key " + classNameCell + classNameBigger(letter) } key={key} onClick={() => handleKeyInput(letter)}>
             {letter}
         </div>
     );
