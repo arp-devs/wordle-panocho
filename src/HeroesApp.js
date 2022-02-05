@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { cellStateReducer } from './cellStateReducer';
 import { GridPanel } from './components/GridPanel';
 import { Keyboard } from './components/Keyboard';
 import { Title } from './components/Title';
@@ -18,7 +19,18 @@ export const HeroesApp = () => {
   const [row, setRow] = useState([{}, {}, {}, {}, {}]);
   const [activeRow, setActiveRow] = useState(0);
   const [gameState, setGameState] = useState("playing");
-  const secretWord = "POINT";
+  const secretWord = "WASTE";
+
+  document.onkeydown = function(e) {
+    var key_press = e.key.toUpperCase();
+    var key_code = key_press.charCodeAt(0);
+    if (key_code == 66) {
+      key_press = "DELETE"
+    } else if (key_code == 69) {
+      key_press = "ENTER"
+    }
+    handleKeyInput(key_press);
+  }
 
   const handleKeyInput = (letter) => {
     if (gameState === "playing") {
@@ -65,6 +77,9 @@ export const HeroesApp = () => {
         if (state === "correct") {
           corrects ++;
         }
+        //llamar al cambio de clase del teclado
+        const classNameCell = cellStateReducer(state);
+        document.getElementById(row[i].letter).classList.add(classNameCell);
         row[i].state = state;
       }
       setActiveRow(activeRow + 1);
@@ -92,7 +107,7 @@ export const HeroesApp = () => {
     <div className='w-100 h-100 position-absolute top-50 start-50 translate-middle container-general'>
         <Title />
         <GridPanel grid={grid} activeRow={activeRow} setRow={setRow} />
-        <Keyboard handleKeyInput={handleKeyInput}/>
+        <Keyboard handleKeyInput={handleKeyInput} />
     </div>
   );
 };

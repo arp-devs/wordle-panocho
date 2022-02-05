@@ -18,19 +18,19 @@ body {
 }
 
 .incorrect-cell {
-  background-color: #555;
+  background-color: #555 !important;
   color: white;
   border: 0;
 }
 
 .correct-cell {
-  background-color: rgb(77, 161, 77);
+  background-color: rgb(77, 161, 77) !important;
   color: white;
   border: 0;
 }
 
 .misplaced-cell {
-  background-color: rgb(185, 175, 77);
+  background-color: rgb(185, 175, 77) !important;
   color: white;
   border: 0;
 }
