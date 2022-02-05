@@ -24,9 +24,9 @@ export const HeroesApp = () => {
   document.onkeydown = function(e) {
     var key_press = e.key.toUpperCase();
     var key_code = key_press.charCodeAt(0);
-    if (key_code == 66) {
+    if (e.key.toUpperCase() == "BACKSPACE") {
       key_press = "DELETE"
-    } else if (key_code == 69) {
+    } else if (key_code == 13) {
       key_press = "ENTER"
     }
     handleKeyInput(key_press);
