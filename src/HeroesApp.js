@@ -24,13 +24,13 @@ export const HeroesApp = () => {
 
   document.onkeydown = function(e) {
     var key_press = e.key.toUpperCase();
-    var key_code = key_press.charCodeAt(0);
-    if (e.key.toUpperCase() == "BACKSPACE") {
-      key_press = "DELETE"
-    } else if (key_code == 13) {
-      key_press = "ENTER"
+    const regex = /^[A-Z]$/
+    if(regex.test(key_press) || key_press === "BACKSPACE" || key_press === "ENTER") {
+      if (key_press == "BACKSPACE") {
+        key_press = "DELETE"
+      } 
+      handleKeyInput(key_press);
     }
-    handleKeyInput(key_press);
   }
 
   const handleKeyInput = (letter) => {
@@ -96,11 +96,11 @@ export const HeroesApp = () => {
       }
       setActiveRow(activeRow + 1);
       console.log(activeRow);
+      const winMessages = ["PERFECT!", "Impressive!", "Awesome!", "You rock!", "Good job", "Uff"];
       if (corrects == 5) {
         setGameState("over");
-        showMessage("Impressive!");
-      }
-      if (activeRow > 4) {
+        showMessage(winMessages[activeRow]);
+      } else  if (activeRow >= 5) {
         setGameState("over");
         showMessage(secretWord);
       }

@@ -13,7 +13,7 @@ export const Key = ({state="", letter="", key, handleKeyInput}) => {
     }
 
     return ( 
-        <div className={"key " + classNameCell + classNameBigger(letter) } key={key} id={letter} onClick={() => handleKeyInput(letter)}>
+        <div className={"key disable-select " + classNameCell + classNameBigger(letter) } key={key} id={letter} onClick={() => handleKeyInput(letter)}>
             {letter}
         </div>
     );
