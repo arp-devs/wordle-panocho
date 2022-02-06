@@ -19,7 +19,8 @@ export const HeroesApp = () => {
   const [row, setRow] = useState([{}, {}, {}, {}, {}]);
   const [activeRow, setActiveRow] = useState(0);
   const [gameState, setGameState] = useState("playing");
-  const secretWord = "WASTE";
+  const secretWord = "APPLE";
+  // const secretWord = "WASTE";
 
   document.onkeydown = function(e) {
     var key_press = e.key.toUpperCase();
@@ -67,39 +68,63 @@ export const HeroesApp = () => {
 
   const checkWord = () => {
     var corrects = 0;
+    const incorrectsArray = [...secretWord];
     // console.log("checkWord");
     if (Object.keys(row[row.length - 1]).length > 0) {
       console.log("comprobamos palabra!");
+      // comprobamos las correctas
+      for (var i=0; i < row.length; i++) {
+        if (secretWord.indexOf(row[i].letter) == i) {
+          for (var i=0; i < incorrectsArray.length; i++) {
+            if (incorrectsArray[i] === row[i].letter) {
+              incorrectsArray[i] = '';
+            }
+          }
+        }
+      }
       for (var i=0; i < row.length; i++) {
 
         // console.log("comprobamos la: " + row[i].letter);
-        const state = checkLetter(row[i].letter, i, secretWord);
+        const state = checkLetter(row[i].letter, i, secretWord, incorrectsArray);
         if (state === "correct") {
           corrects ++;
-        }
+        } 
         //llamar al cambio de clase del teclado
         const classNameCell = cellStateReducer(state);
         document.getElementById(row[i].letter).classList.add(classNameCell);
         row[i].state = state;
       }
       setActiveRow(activeRow + 1);
+      console.log(activeRow);
       if (corrects == 5) {
         setGameState("over");
+        showMessage("Impressive!");
+      }
+      if (activeRow > 4) {
+        setGameState("over");
+        showMessage(secretWord);
       }
     }
-
   }
-  const checkLetter = (letter, index, secretWord) => {
 
-    if (secretWord.indexOf(letter) > -1) {
-      if (secretWord.indexOf(letter) == index) {
+  const showMessage = (message) => {
+    var x = document.getElementById("snackbar");
+    x.textContent = message;
+    x.className = "show";
+    // setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+    x.className.replace("show", "");
+  }
+
+  const checkLetter = (letter, index, secretWord, incorrectsArray) => {
+    // if (secretWord.indexOf(letter) > -1) {
+      if (secretWord[index] == letter) {
         return "correct"
-      } else {
+      } else if (incorrectsArray.indexOf(letter) > -1){
         return "misplaced"
+      } else {
+        return "incorrect"
       }
-    } else {
-      return "incorrect"
-    }
+    // } 
 
   }
 
@@ -108,6 +133,7 @@ export const HeroesApp = () => {
         <Title />
         <GridPanel grid={grid} activeRow={activeRow} setRow={setRow} />
         <Keyboard handleKeyInput={handleKeyInput} />
+        <div id="snackbar">Some text some message..</div>
     </div>
   );
 };
