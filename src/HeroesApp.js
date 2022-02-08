@@ -3,8 +3,11 @@ import { cellStateReducer } from './cellStateReducer';
 import { GridPanel } from './components/GridPanel';
 import { Keyboard } from './components/Keyboard';
 import { Title } from './components/Title';
+import { secretWordsArray } from './model/panocho_5';
 
-
+const secretWordsList = secretWordsArray;
+const secretWord = secretWordsList[Math.floor(Math.random() * 102)];
+console.log(secretWord);
 export const HeroesApp = () => {
 
   const [grid, setGrid] = useState([ 
@@ -19,8 +22,25 @@ export const HeroesApp = () => {
   const [row, setRow] = useState([{}, {}, {}, {}, {}]);
   const [activeRow, setActiveRow] = useState(0);
   const [gameState, setGameState] = useState("playing");
-  const secretWord = "APPLE";
+  // const secretWord = "APPLE";
+  // let chorizo = "";
   // const secretWord = "WASTE";
+
+  // fetch(raw)
+  // .then(r => r.text())
+  // .then(text => {
+  //   // console.log('text decoded:', text);
+  //   chorizo = text;
+  // });
+
+  // console.log(secretWordsList);
+
+  // secretWordsList.push("hola");
+  // secretWordsList.push("text");
+  // secretWordsList.push("adios");
+
+  // console.log(secretWordsList);
+  // console.log(secretWordsList[3]);
 
   document.onkeydown = function(e) {
     var key_press = e.key.toUpperCase();
